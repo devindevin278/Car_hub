@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    
+    <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <header>
+        <a href="/">
+            <img src="../static/../static/Asset/carhub.png" alt="" id="navbar_logo">
+        </a>
+        <a href="/" class="nav_text" id="nav_home">Home</a>
+        <a href="/data" class="nav_text">Data</a>
+        <a href="/prediction" class="nav_text" id="nav_pred">Predict</a>
+        
+    </header>
+
+    <div class="d_banner">
+        <img src="../static/Asset/data_banner.png" alt="" width="100%" class="data_img">
+        <div class="circle"></div>
+        <div class="data_text">DATA</div>
+    </div>
+
+
+
+
+      <div class="data_ctg">
+        <h1>About Dataset</h1>
+        <p class="">The dataset utilized for our car price prediction web application was obtained from a Kaggle challenge and sourced from machinehack.com.</p>
+        <p class="">It consists of various attributes that provide valuable insights into the factors influencing car prices. The attributes include: </p>
+        <div class="container">
+            <!-- row 1 -->
+            <div class="row align-items-start">
+                <div class="col">
+                    <a tabindex="0" class="btn btn-warning" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="bottom" data-bs-content="The manufacturer is the company that designs, produces, and sells cars to consumers.">Manufacturer</a>
+                </div>
+                <div class="col">
+                    <a tabindex="0" class="btn btn-warning" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="bottom" data-bs-content="A model refers to a specific variant or version of a car, often distinguished by its unique features, design, or specifications.">Model</a>
+                </div>
+                <div class="col">
+                    <a tabindex="0" class="btn btn-warning" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="bottom" data-bs-content="The production year indicates the year in which a car was manufactured or produced by the manufacturer.">Production Year</a>
+                </div>
+                <div class="col">
+                    <a tabindex="0" class="btn btn-warning" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="bottom" data-bs-content="The category classifies cars based on their common attributes or purpose, such as sedans, SUVs, sports cars, or electric vehicles.">Category</a>
+                </div>
+                <div class="col">
+                    <a tabindex="0" class="btn btn-warning" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="bottom" data-bs-content=" A leather interior refers to the upholstery and surfaces inside the car that are covered with genuine or synthetic leather material.">Leather Interior</a>
+                </div>
+            </div>
+
+            <!-- row 2 -->
+            <div class="row align-items-start">
+                <div class="col">
+                    <a tabindex="0" class="btn btn-warning" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="bottom" data-bs-content="Fuel type indicates the specific kind of fuel required for the car's engine, such as gasoline, diesel, hybrid, or electric power.">Fuel Type</a>
+                </div>
+                <div class="col">
+                    <a tabindex="0" class="btn btn-warning" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="bottom" data-bs-content="Engine volume represents the total displacement capacity of a car's engine, measured in liters or cubic centimeters (cc).">Engine Volume</a>
+                </div>
+                <div class="col">
+                    <a tabindex="0" class="btn btn-warning" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="bottom" data-bs-content="Mileage represents the total distance traveled by the car, typically measured in miles or kilometers, since its initial use or purchase.">Milage</a>
+                </div>
+                <div class="col">
+                    <a tabindex="0" class="btn btn-warning" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="bottom" data-bs-content="Gearbox type refers to the specific transmission system used in a car, such as manual, automatic, continuously variable transmission (CVT), or dual-clutch transmission (DCT).">Gearbox Type</a>
+                </div>
+                <div class="col">
+                    <a tabindex="0" class="btn btn-warning" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="bottom" data-bs-content="Drive wheels are the wheels of a car that receive power from the engine and provide propulsion, whether they are front-wheel drive, rear-wheel drive, or all-wheel drive.">Drive Wheels</a>
+                </div>
+            </div>
+
+            <!-- row 3 -->
+            <div class="row align-items-start" id="col3">
+                <div class="col">
+                    <a tabindex="0" class="btn btn-warning" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="bottom" data-bs-content="Doors are the hinged or sliding panels on a car that allow entry or exit for passengers or access to the interior and cargo areas.">Doors</a>
+                </div>
+                <div class="col">
+                    <a tabindex="0" class="btn btn-warning" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="bottom" data-bs-content="The steering wheel is a circular control in a car that is used by the driver to steer and control the direction of the vehicle.">Wheel</a>
+                </div>
+                <div class="col">
+                    <a tabindex="0" class="btn btn-warning" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="bottom" data-bs-content="Color refers to the visual appearance of a car's exterior, determined by the specific paint or coating applied to the body.">Color</a>
+                </div>
+                <div class="col">
+                    <a tabindex="0" class="btn btn-warning" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="bottom" data-bs-content="Airbags are safety devices installed in cars that rapidly inflate during a collision to protect occupants by cushioning the impact and reducing injuries.">Airbags</a>
+                </div>
+            </div>
+
+        </div>
+        <p class="bbottom"></p>
+    </div>
+
+    <!--<div class="data_ctg">
+        <h1>Data Based On Year Production</h1>
+        <p class="bbottom">Showing you graph based on the year production</p>
+       
+    </div> -->
+
+    <div class="data_ctg">
+      <h1>Feature Correlation</h1>
+      <p class="bbottom">Showing you the correlation between car features and price</p>
+    </div>
+    <div id="heatmapChart" class="chart--container bg ms-5">
+    </div>
+
+
+
+    <div class="data_ctg">
+        <h1>Car Frequency Based on Feature</h1>
+        <p class="bbottom">Showing you graph based on the car’s brand</p>
+        <!-- BUAT GRATIK -->
+
+        <div class="d-flex">
+            <select id="count_features">
+                {% for feature in features %}
+                    <option value="{{ feature }}">{{ feature }}</option>
+                {% endfor %}
+            </select>
+
+            <select id="count_charttype">
+                <option value="bar">Bar</option>
+                <option value="pie">Pie</option>
+            </select>
+        </div>
+
+        <div class="w-100 d-flex" style="height: 500px;">
+            <canvas class="mt-4 mx-auto" id="myChart_count"></canvas>
+        </div>
+    </div>
+    
+    <div class="data_ctg">
+        <h1>Car Price Trend Based on Feature</h1>
+        <p class="bbottom">Showing you graph based on the year production</p>
+
+        <div class="d-flex">
+            <select id="price_features">
+                {% for feature in features %}
+                    <option value="{{ feature }}">{{ feature }}</option>
+                {% endfor %}
+            </select>
+
+            
+        </div>
+
+        <div class="w-100 d-flex" style="height: 600px;">
+            <canvas class="mt-4 mx-auto img-fluid w-100" id="myChart_price"></canvas>
+        </div>
+       
+    </div>
+    
+
+    <div class="data_poster">
+        <img src="../static/Asset/data_poster.png" alt="" width="100%" class="data_img">
+        <h1>In Consideration At Choosing Your Car? We Can Help!</h1>
+        <!-- button -->
+        <a href="/prediction">PREDICT CAR PRICE</a>
+    </div>
+
+    <!-- Footer -->
+    <div class="footerr">
+        <div class="footer-c">
+            <img src="../static/Asset/carhub.png" alt="">
+            <p>Copyright ©2023 .carhub. All rights reserved.</p>
+        </div>
+    </div>
+    
+    <script src="../static/js/style.js"></script>
+ 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js"
+        integrity="sha384-gdQErvCNWvHQZj6XZM0dNsAoY4v+j5P1XDpNkcM3HJG1Yx04ecqIHk7+4VBOCHOG" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+   
+</body>
+
+<script>
+
+  
+
+    // Graphs count
+  let ctx_count = document.getElementById('myChart_count')
+
+  let ctx_price = document.getElementById('myChart_price')
+ 
+
+$(document).ready(function() {
+
+    let count_features = document.getElementById('count_features')
+    let count_charttype = document.getElementById('count_charttype')
+    let price_features = document.getElementById('price_features')
+    let price_charttype = document.getElementById('price_charttype')
+
+    let count_feature_value = count_features.value
+    let count_charttype_value = count_charttype.value
+
+    let price_feature_value = price_features.value
+    let charttype_value = count_charttype.value
+    
+    $('#count_features').on('change', function() {
+        
+        count_feature_value = count_features.value
+        if(count_charttype_value == 'bar') {
+            legend = false
+        } else {
+            legend = true
+        }
+        
+        $.ajax({
+            url: '/api/count',
+            data: {
+              'count_feature_value': count_feature_value,
+              'count_charttype_value': count_charttype_value
+            },
+            type: 'POST',
+            success: function(response) {
+
+                data_label = JSON.parse(response.message)
+                data_value = JSON.parse(response.value)
+
+                console.log(data_label);
+                console.log(data_value);
+
+                for(i=0; i < data_label.length; i++) {
+                  data_label[i] = `'`+data_label[i]+`'`
+                  console.log(data_label[i])
+                }
+
+                
+              
+                var existingChart = Chart.getChart('myChart_count');
+                    if (existingChart) {
+                        existingChart.destroy();
+                    }
+
+                
+                let new_myChart = new Chart(ctx_count, {
+                    type: count_charttype_value,
+                    data: {
+                        labels: data_label,
+                        
+                        datasets: [{
+                            data: data_value,
+                            fill: true,
+                            lineTension: 0,
+                            backgroundColor: generatePastelColors(10),
+                            borderColor: '#D3D3D3',
+                            borderWidth: 2,
+                            pointBackgroundColor: 'rgba(255, 200, 0, .5)'
+                        }]
+                    },
+                    options: {
+                        plugins: {
+                            legend: {
+                                display: legend,
+                                position: 'right'
+                            },
+                            tooltip: {
+                                boxPadding: 3
+                            }
+                        }
+                    }
+                    
+                })
+                
+            }
+        });
+
+        
+    
+    })
+
+    $('#count_charttype').on('change', function() {
+
+        count_charttype_value = count_charttype.value
+        if(count_charttype_value == 'bar') {
+            legend = false
+        } else {
+            legend = true
+        }
+       
+        
+        $.ajax({
+            url: '/api/count',
+            data: {
+              'count_feature_value': count_feature_value,
+              'count_charttype_value': count_charttype_value
+            },
+            type: 'POST',
+            success: function(response) {
+
+                data_label = JSON.parse(response.message)
+                data_value = JSON.parse(response.value)
+
+                for(i=0; i < data_label.length; i++) {
+                  data_label[i] = `'`+data_label[i]+`'`
+                  console.log(data_label[i])
+                }
+
+               
+                var existingChart = Chart.getChart('myChart_count');
+                    if (existingChart) {
+                        existingChart.destroy();
+                    }
+
+                
+                let new_myChart = new Chart(ctx_count, {
+                    type: count_charttype_value,
+                    data: {
+                        labels: data_label,
+                        datasets: [{
+                            data: data_value,
+                            fill: true,
+                            lineTension: 0,
+                            backgroundColor: generatePastelColors(10),
+                            borderColor: '#D3D3D3',
+                            borderWidth: 2,
+                            pointBackgroundColor: 'rgba(255, 200, 0, .5)'
+                        }]
+                    },
+                    options: {
+                        plugins: {
+                            legend: {
+                                display: legend,
+                                position: 'right'
+                            },
+                            tooltip: {
+                                boxPadding: 3
+                            }
+                        }
+                    }
+                    
+                })
+             
+            }
+        });
+    
+    })
+
+    $('#price_features').on('change', function() {
+        
+        price_feature_value = price_features.value
+       
+        
+        $.ajax({
+            url: '/api/price',
+            data: price_feature_value,
+            type: 'POST',
+            success: function(response) {
+
+                data_label = JSON.parse(response.message)
+                data_value = JSON.parse(response.value)
+
+               
+                var existingChart = Chart.getChart('myChart_price');
+                    if (existingChart) {
+                        existingChart.destroy();
+                    }
+
+                
+                let new_myChart = new Chart(ctx_price, {
+                    data: {
+                        labels: data_label,
+                        datasets: [{
+                            type: 'line',
+                            data: data_value,
+                            fill: true,
+                            lineTension: 0,
+                            borderColor: '#FFAA2B',
+                            borderWidth: 2,
+                            pointBackgroundColor: 'rgba(255, 200, 0, .5)'
+                        }]
+                    },
+                    options: {
+                        plugins: {
+                            legend: {
+                                display: false
+                            },
+                            tooltip: {
+                                boxPadding: 3
+                            },
+                            scales: {
+                                x: {
+                                    display: true,
+                                    title: {
+                                      display: true,
+                                      text: price_feature_value
+                                    }
+                                  },
+                                  y: {
+                                    display: true,
+                                    title: {
+                                      display: true,
+                                      text: 'Price',
+                                      color: 'black',
+                                      font: {
+                                        family: 'Times',
+                                        size: 20,
+                                        style: 'normal',
+                                        lineHeight: 1.2
+                                      },
+                                      padding: {top: 30, left: 0, right: 0, bottom: 0}
+                                    }
+                                  }
+                            }
+                        }
+                    }
+                    
+                })
+                
+            }
+        });
+
+        
+    
+    })
+
+    $('#count_features').trigger('change');
+    $('#price_features').trigger('change');
+
+})
+
+
+function generatePastelColors(count) {
+    var pastelColors = [];
+    var baseHue = Math.floor(Math.random() * 360); // Random base hue value
+    var hueDifference = 360 / count; // Calculate the difference between each hue value
+    var saturation = 60; // Adjust the saturation value
+    var lightness = 70; // Adjust the lightness value
+  
+    for (var i = 0; i < count; i++) {
+      var hue = (baseHue + (i * hueDifference)) % 360; // Adjust hue for each color
+      var color = 'hsl(' + hue + ', ' + saturation + '%, ' + lightness + '%)'; // Generate HSL color string
+      pastelColors.push(color);
+    }
+  
+    return pastelColors;
+  }
+
+      // heatmap starts
+
+      // CHART CONFIG
+// -----------------------------
+let chartConfig2 = {
+    globals: {
+      fontFamily: 'Poppins',
+    },
+    graphset: [{
+      type: 'piano',
+      theme: 'classic',
+      backgroundColor: '#D3D3D3',
+      
+    //  subtitle: {
+    //    text: "Black's Beach - La Jolla",
+    //    backgroundColor: 'none',
+    //    fontColor: '#4a4a4a',
+    //    fontSize: '14px',
+    //    height: '25px',
+    //    x: '-9.5px',
+    //    y: '38.5px',
+    //  },
+      
+      
+      plot: {
+        tooltip: {
+          text: ' %v.',
+          fontColor: 'white',
+          fontSize: '14px',
+          textAlign: 'left',
+        },
+        aspect: 'none',
+        borderColor: '#eeeeee',
+        borderRadius: '7px',
+        borderWidth: '2px',
+        rules: [
+          {
+            backgroundColor: '#081D58',
+            fontColor: '#05636c',
+            rule: '%node-value > 0.67 && %node-value <= 1',
+          },
+          {
+            backgroundColor: '#253494',
+            fontColor: '#05636c',
+            rule: '%node-value > 0.33 && %node-value <= 0.67',
+          },
+          {
+            backgroundColor: '#225EA8',
+            fontColor: '#05636c',
+            rule: '%node-value > 0 && %node-value <= 0.33',
+          },
+          {
+            backgroundColor: '#1D91C0',
+            fontColor: '#05636c',
+            rule: '%node-value > -0.33 && %node-value <= 0',
+          },
+          {
+            backgroundColor: '#41B6C4',
+            fontColor: '#05636c',
+            rule: '%node-value > -0.67 && %node-value <= -0.33',
+          },
+          {
+            backgroundColor: '#7FCDBB',
+            fontColor: 'red',
+            rule: '%node-value > -1 && %node-value <= -0.67',
+          },
+        ],
+      },
+      plotarea: {
+        margin: 'dynamic',
+      },
+      scaleX: {
+        values: [
+          'Model',
+          'Category',
+          'Fuel type',
+          'Wheel',
+          'Prod. year',
+          'Engine volume',
+          'Cylinders',
+          'Levy',
+          'Manufacturer',
+          'Leather interior',
+          'Gear box type',
+          'Mileage',
+          'Color',
+          'Airbags',
+          'Drive wheels',
+          'Doors'
+        ],
+        guide: {
+          visible: false,
+        },
+        item: {
+          borderColor: 'none',
+          fontColor: '#05636c',
+          size: '13px',
+          fontSize: '20px'
+        },
+        lineWidth: '0px',
+        placement: 'opposite',
+        tick: {
+          visible: false,
+        },
+        zooming: true,
+        zoomSnap: true,
+      },
+      scaleY: {
+        values: ['Price'],
+        guide: {
+          visible: false,
+        },
+        item: {
+          borderColor: 'black',
+          fontColor: '#05636c',
+          size: '13px',
+        },
+        lineWidth: '0px',
+        mirrored: true,
+        tick: {
+          visible: false,
+        },
+        zooming: true,
+      },
+      zoom: {
+        alpha: 0.75,
+        backgroundColor: '#e5e8ea',
+        borderColor: '#009',
+        borderWidth: '2px',
+        preserveZoom: true,
+      },
+      scrollX: {
+        bar: {
+          alpha: 0.5,
+          backgroundColor: '#01579B',
+          borderRadius: '3px',
+        },
+        handle: {
+          backgroundColor: '#01579B',
+          borderRadius: '5px',
+          borderTop: 'none',
+          borderRight: 'none',
+          borderBottom: 'none',
+          borderLeft: 'none',
+        },
+      },
+      scrollY: {
+        bar: {
+          alpha: 0.5,
+          backgroundColor: '#01579B',
+          borderRadius: '3px',
+        },
+        handle: {
+          backgroundColor: '#01579B',
+          borderRadius: '5px',
+          borderTop: 'none',
+          borderRight: 'none',
+          borderBottom: 'none',
+          borderLeft: 'none',
+        },
+      },
+      series: [
+        {
+          text: '2-3 Ft',
+          values: [
+          0.172805,
+          0.066306,
+          0.035681,
+          0.014558,
+          0.012689,
+          0.008888,
+          0.007435,
+          0.005509,
+          0.001368,
+          0.000551,
+          0.000213,
+          -0.001763,
+          -0.003873,
+          -0.012709,
+          -0.020928,
+          -0.033387,
+          ],
+          legendMarker: {
+            backgroundColor: '#7FCDBB',
+          },
+        },
+        
+      ],
+    }, ],
+  };
+
+  let chartConfig = {
+    globals: {
+      fontFamily: 'Poppins',
+    },
+    graphset: [
+      {
+        type: 'piano',
+        theme: 'classic',
+        backgroundColor: '#D3D3D3',
+       
+        legend: {
+          align: 'center',
+          backgroundColor: '#d3d3d3',
+          borderWidth: '0px',
+          footer: {
+            backgroundColor: '#d3d3d3',
+            borderColor: '#d3d3d3',
+            fontColor: '#05636c',
+            fontSize: '14px',
+            textAlign: 'center',
+          },
+          item: {
+            backgroundColor: '#d3d3d3',
+            borderColor: 'none',
+            fontColor: '#05636c',
+            size: '13px',
+          },
+          layout: 'x6',
+          marker: {
+            type: 'square',
+            borderColor: 'none',
+            borderRadius: '8px',
+            size: '13px',
+          },
+          shadow: false,
+          toggleAction: 'none',
+          verticalAlign: 'bottom',
+          width: '80%',
+        },
+        plot: {
+          tooltip: {
+            text: ' %v',
+            fontColor: 'white',
+            fontSize: '14px',
+            textAlign: 'left',
+          },
+          aspect: 'none',
+          borderColor: '#eeeeee',
+          borderRadius: '7px',
+          borderWidth: '2px',
+          rules: [
+          {
+            backgroundColor: '#081D58',
+            fontColor: '#05636c',
+            rule: '%node-value > 0.67 && %node-value <= 1',
+          },
+          {
+            backgroundColor: '#253494',
+            fontColor: '#05636c',
+            rule: '%node-value > 0.33 && %node-value <= 0.67',
+          },
+          {
+            backgroundColor: '#225EA8',
+            fontColor: '#05636c',
+            rule: '%node-value > 0 && %node-value <= 0.33',
+          },
+          {
+            backgroundColor: '#1D91C0',
+            fontColor: '#05636c',
+            rule: '%node-value > -0.33 && %node-value <= 0',
+          },
+          {
+            backgroundColor: '#41B6C4',
+            fontColor: '#05636c',
+            rule: '%node-value > -0.67 && %node-value <= -0.33',
+          },
+          {
+            backgroundColor: '#7FCDBB',
+            fontColor: 'red',
+            rule: '%node-value > -1 && %node-value <= -0.67',
+          },
+        ],
+        },
+        plotarea: {
+          margin: 'dynamic',
+        },
+        scaleX: {
+          values: [
+          'Model',
+          'Category',
+          'FuelType',
+          'Wheel',
+          'Prod. year',
+          'Engine volume',
+          'Cylinders',
+          'Levy',
+          'Manufacturer',
+          'Leather interior',
+          'Gear box type',
+          'Mileage',
+          'Color',
+          'Airbags',
+          'Drive wheels',
+          'Doors',
+        ],
+          guide: {
+            visible: false,
+          },
+          item: {
+            borderColor: 'none',
+            fontColor: '#4a4a4a',
+            size: '5px',
+            'font-size': '12px',
+            'wrap-text': true,
+           
+          },
+          lineWidth: '0px',
+          placement: 'opposite',
+          tick: {
+            visible: false,
+          },
+          zooming: true,
+          zoomSnap: true,
+        },
+        scaleY: {
+          values: ['Price'],
+          label: {
+            fontSize: '23px',
+          },
+          guide: {
+            visible: false,
+          },
+          item: {
+            borderColor: 'none',
+            fontColor: '#4a4a4a',
+            size: '23px',
+            fontSize: '20px'
+          },
+          lineWidth: '0px',
+          mirrored: true,
+          tick: {
+            visible: false,
+          },
+          zooming: true,
+        },
+        zoom: {
+          alpha: 0.75,
+          backgroundColor: '#e5e8ea',
+          borderColor: '#009',
+          borderWidth: '2px',
+          preserveZoom: true,
+        },
+        scrollX: {
+          bar: {
+            alpha: 0.5,
+            backgroundColor: '#01579B',
+            borderRadius: '3px',
+          },
+          handle: {
+            backgroundColor: '#01579B',
+            borderRadius: '5px',
+            borderTop: 'none',
+            borderRight: 'none',
+            borderBottom: 'none',
+            borderLeft: 'none',
+          },
+        },
+        scrollY: {
+          bar: {
+            alpha: 0.5,
+            backgroundColor: '#01579B',
+            borderRadius: '3px',
+          },
+          handle: {
+            backgroundColor: '#01579B',
+            borderRadius: '5px',
+            borderTop: 'none',
+            borderRight: 'none',
+            borderBottom: 'none',
+            borderLeft: 'none',
+          },
+        },
+        series: [
+        {
+          text: '1 to 0.67',
+          values: [
+          0.172805,
+          0.066306,
+          0.035681,
+          0.014558,
+          0.012689,
+          0.008888,
+          0.007435,
+          0.005509,
+          0.001368,
+          0.000551,
+          0.000213,
+          -0.001763,
+          -0.003873,
+          -0.012709,
+          -0.020928,
+          -0.033387,
+          ],
+          legendMarker: {
+            backgroundColor: '#081D58',
+          },
+        },
+        
+        {
+          text: '0.67 to 0.33',
+          legendMarker: {
+            backgroundColor: '#253494',
+          },
+        },
+        {
+          text: '0.33 to 0',
+
+          legendMarker: {
+            backgroundColor: '#225EA8',
+          },
+        },
+        {
+          text: '0 to -0.33',
+ 
+          legendMarker: {
+            backgroundColor: '#1D91C0',
+          },
+        },
+        
+        
+        {
+          text: '-0.33 to -0.67',
+
+          legendMarker: {
+            backgroundColor: '#41B6C4',
+          },
+        },
+        {
+          text: '-0.67 to -1',
+          legendMarker: {
+            backgroundColor: '#7FCDBB',
+          },
+        },
+          
+        ],
+      },
+    ],
+  };
+   
+  // RENDER CHARTS
+  // -----------------------------
+  zingchart.render({
+    id: 'heatmapChart',
+    data: chartConfig,
+    height: 300,
+    width: '95%'
+  });
+
+      // heatmap ends
+
+      // popover
+  var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+  var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+    return new bootstrap.Popover(popoverTriggerEl)
+  })
+  var popover = new bootstrap.Popover(document.querySelector('.popover-dismiss'), {
+    trigger: 'focus'
+  })
+
+</script>
+
+</html>
