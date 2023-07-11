@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Prediction</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -70,9 +70,9 @@
                     <select class="form-select" name="prod_year" id="production" aria-label="Floating label select example">
                       <option selected class="select">Select Production Year</option>
                       
-                      {% for prod_year in prod_years %}
+                      {% for i in range(2000, 2024) %}
 
-                      <option value="{{ prod_year }}" class="select">{{ prod_year }}</option>
+                      <option value="{{ i }}" class="select">{{ i }}</option>
                       
                       {% endfor %}
                      
@@ -106,7 +106,7 @@
             <div class="col">
               <div class="form-floating">
                     <select class="form-select" name="fuel_type" id="fuel_type" aria-label="Floating label select example">
-                      <option selected class="select">Select The Year</option>
+                      <option selected class="select">Select Fuel Type</option>
                       {% for fuel_type in fuel_types %}
 
                       <option value="{{ fuel_type }}" class="select">{{ fuel_type }}</option>
@@ -122,13 +122,15 @@
             <div class="col">
               <div class="form-floating">
                 <select class="form-select" name="cylinder" id="cylinder" aria-label="Floating label select example">
-                  <option selected class="select">Select cylinder</option>
+                  <option selected class="select">Select Cylinder</option>
+                  <option class="select" value="2">2</option>
+                  <option class="select" value="3">3</option>
+                  <option class="select" value="4">4</option>
+                  <option class="select" value="5">5</option>
+                  <option class="select" value="6">6</option>
+                  <option class="select" value="8">8</option>
                   
-                  {% for cylinder in cylinders %}
-    
-                  <option value="{{ cylinder }}" class="select">{{ cylinder }}</option>
                   
-                  {% endfor %}
                   
                 </select>
                 <label for="cylinder" class="select">Cylinder</label>
@@ -144,7 +146,7 @@
             <div class="col">
                 <div class="form-floating">
                     <select class="form-select" name="gear_box_type" id="gear_box_type" aria-label="Floating label select example">
-                      <option selected class="select">Select gear</option>
+                      <option selected class="select">Select Gear</option>
                      
                       {% for gear_box_type in gear_box_types %}
         
@@ -160,7 +162,7 @@
             <div class="col">
                 <div class="form-floating">
                     <select class="form-select" name="drive_wheel" id="drive_wheel" aria-label="Floating label select example">
-                      <option selected class="select">Select drive wheel</option>
+                      <option selected class="select">Select Drive Wheel</option>
                      
                       {% for drive_wheel in drive_wheels %}
         
@@ -169,7 +171,7 @@
                       {% endfor %}
                      
                     </select>
-                    <label for="color" class="select">Drive wheels</label>
+                    <label for="color" class="select">Drive Wheels</label>
                 </div>
             </div>
 
@@ -177,15 +179,15 @@
             <div class="col">
                 <div class="form-floating">
                     <select class="form-select" name="door" id="door" aria-label="Floating label select example">
-                      <option selected class="select">Select door</option>
+                      <option selected class="select">Select Doors</option>
                      
                      <!-- {% for door in doors %}
         
                       <option value="{{ door }}" class="select">{{ door }}</option>
                       
                       {% endfor %}--> 
-                      <option class="select" value="4">4</option>
                       <option class="select" value="2">2</option>
+                      <option class="select" value="4">4</option>
                       <option class="select" value="5">5</option>
                      
                     </select>
@@ -236,60 +238,99 @@
             <div class="col">
                 <div class="form-floating">
                     <select class="form-select" name="airbag" id="airbag" aria-label="Floating label select example">
-                      <option selected class="select">Select airbag</option>
+                      <option selected class="select">Select Airbag</option>
                      
-                      {% for airbag in airbags %}
+                      {% for i in range(0,17) %}
         
-                      <option value="{{ airbag }}" class="select">{{ airbag }}</option>
+                      <option value="{{ i }}" class="select">{{ i }}</option>
                       
                       {% endfor %}
                      
                     </select>
-                    <label for="airbag" class="select">airbags</label>
+                    <label for="airbag" class="select">Airbags</label>
                 </div>
             </div>
 
         </div>
 
 
-        <!-- levy -->
-        <label for="levy">Levy</label>
-        <input id="levy" name="levy" type="number">
+        <div class="row" id="row2">
+          <div class="col">
+              <div class="mb-3">
+              <label for="levy" class="form-label" id="levy">Levy</label>
+              <input type="number" id="levy" name="levy" class="form-control" placeholder="Input Car's Levy">
+              </div>
+          </div>
+          <div class="col">
+              <div class="mb-3">
+                  <label for="mileage" class="form-label" id="milage">Mileage</label>
+                  <input  id="mileage" name="mileage" type="number" class="form-control" placeholder="Input Car's Milage">
+                  </div>
+              </div>
+          <div class="col">
+              <div class="mb-3">
+                  <label for="eVolume" class="form-label" id="eVolume">Engine Volume</label>
+                  <input type="number" name="engine_volume" id="eVolume" class="form-control" placeholder="Input Car's Engine Volume">
+                  </div>
+              </div>
+          </div>
+      </div>
         
-        <!-- mileage -->
-        <label for="mileage">mileage</label>
-        <input id="mileage" name="mileage" type="number">
+      <div class="row" id="row2">
+        <div class="col">
+            <label for="leather" class="form-label" id="leather">Leather Interior</label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" id="li_yes" name="leather_interior" value="True">
+                <label class="form-check-label" for="li_yes" id="leather">
+                  Yes
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" id="li_no" name="leather_interior" value="False">
+                <label class="form-check-label" for="li_no" id="leather2">
+                  No
+                </label>
+              </div>
+        </div>
+        <div class="col">
+            <label for="eTurbo" class="form-label" id="eTurbo">Engine Volume Turbo</label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" id="turbo_yes" name="turbo" value="True">
+                <label class="form-check-label" for="turbo_yes" id="eTurbo">
+                  Yes
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" id="turbo_no" name="turbo" value="False">
+                <label class="form-check-label" for="turbo_no" id="eTurbo2">
+                  No
+                </label>
+              </div>
+        </div>
+        <div class="col">
+            
+        </div>
+    </div>
 
-        <!-- engine_volume -->
-        <label for="engine_volume">engine_volume</label>
-        <input id="engine_volume" name="engine_volume" type="number">
 
+     
 
-        <p>Leather interior: </p>
-        <input type="radio" id="li_yes" name="leather_interior" value="True">
-        <label for="li_yes">Yes</label>
-        <input type="radio" id="li_no" name="leather_interior" value="False">
-        <label for="li_no">No</label>
-
-        <p>Engine volume turbo: </p>
-        <input type="radio" id="turbo_yes" name="turbo" value="True">
-        <label for="turbo_yes">Yes</label>
-        <input type="radio" id="turbo_no" name="turbo" value="False">
-        <label for="turbo_no">No</label>
+       
 
 
         <div class="button_pred">
-            <button type="button" class="btn btn-warning dark" id="button1" onclick="send_data()">Predict Car Price</button>
+            <a href="#result" type="button" class="btn btn-warning dark" id="button1" onclick="send_data()">Predict Car Price</a>
         </div>
 
         
+        <div class="row" id="result">
+          <div class="col-12 price_prediction" style="text-align: center;">
+            <h1><span id="prediction"></span></h1>
+          </div> 
+        </div>
+
     </form>
 
-    <div class="row">
-      <div class="col-12" style="text-align: center;">
-        <h3><span id="prediction"></span></h3>
-      </div>  
-    </div>
 
     <!-- Footer -->
     <div class="footerr">
@@ -347,7 +388,7 @@
 
       xhr.onreadystatechange = function() {
         if(xhr.readyState == XMLHttpRequest.DONE) {
-          document.getElementById('prediction').innerHTML = 'Prediction: ' + xhr.responseText;
+          document.getElementById('prediction').innerHTML = 'Rp ' + xhr.responseText;
         }
       }
       

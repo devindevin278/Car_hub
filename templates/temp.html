@@ -97,3 +97,21 @@ series: [{
   }
   
 
+  {% for airbag in airbags %}
+        
+                      <option value="{{ airbag }}" class="select">{{ airbag }}</option>
+                      
+                      {% endfor %}
+
+
+                      {% for prod_year in prod_years %}
+
+                      <option value="{{ prod_year }}" class="select">{{ prod_year }}</option>
+                      
+                      {% endfor %}
+
+                      {% for cylinder in cylinders %}
+    
+                  <option value="{{ cylinder }}" class="select">{{ cylinder }}</option>
+                  
+                  {% endfor %}

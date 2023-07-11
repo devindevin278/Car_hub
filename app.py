@@ -28,8 +28,7 @@ model = pickle.load(open('finalModel2.pkl', 'rb'))
 
 @app.route("/")
 def home():
-    name = 'devin'
-    return render_template('index.html', name = name)
+    return render_template('index.html')
 
 @app.route("/api/count", methods=["POST"])
 def count():
@@ -294,20 +293,20 @@ def data():
 def prediction():
 
     levies = car_data['Levy'].unique()
-    manufacturers = car_data['Manufacturer'].unique()
-    models = car_data['Model'].unique()
+    manufacturers = sorted(car_data['Manufacturer'].unique())
+    models = sorted(car_data['Model'].unique())
     prod_years = car_data['Prod. year'].unique()
-    categorys = car_data['Category'].unique()
+    categorys = sorted(car_data['Category'].unique())
     leather_interiors = car_data['Leather interior'].unique()
-    fuel_types = car_data['Fuel type'].unique()
+    fuel_types = sorted(car_data['Fuel type'].unique())
     engine_volumes = car_data['Engine volume'].unique()
     mileages = car_data['Mileage'].unique()
     cylinders = car_data['Cylinders'].unique()
-    gear_box_types = car_data['Gear box type'].unique()
+    gear_box_types = sorted(car_data['Gear box type'].unique())
     drive_wheels = car_data['Drive wheels'].unique()
     doors = car_data['Doors'].unique()
     wheels = car_data['Wheel'].unique()
-    colors = car_data['Color'].unique()
+    colors = sorted(car_data['Color'].unique())
     airbags = car_data['Airbags'].unique()
     # turbos = car_data['Turbo'].unique()
 
