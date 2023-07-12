@@ -25,6 +25,7 @@ class TopFeatureSelector(BaseEstimator, TransformerMixin):
         return X[:, self.feature_indices_]
 
 model = pickle.load(open('finalModel2.pkl', 'rb'))
+# model = pickle.load(open('linearRegressionModel.pkl', 'rb'))
 
 @app.route("/")
 def home():
@@ -105,21 +106,23 @@ def count():
             json_data = json.dumps(index.tolist())
                 
             # values = np.array(car_eda['bins_mileage'].value_counts().values)
-            values = np.round((car_eda['bins_mileage'].value_counts().values / car_eda['bins_mileage'].value_counts().sum())*100, 2)
+            values = np.round((car_eda['bins_mileage'].value_counts().values / car_eda['bins_mileage'].value_counts().sum()), 2)
             json_value = json.dumps(values.tolist())
             
         elif data_feature == 'Airbags':
             index = np.array(car_eda['bins_airbags'].value_counts().index)
             json_data = json.dumps(index.tolist())
                 
-            values = np.array(car_eda['bins_airbags'].value_counts().values)
+            values = np.round((car_eda['bins_airbags'].value_counts().values / car_eda['bins_airbags'].value_counts().sum()), 2)
+            # values = np.array(car_eda['bins_airbags'].value_counts().values)
             json_value = json.dumps(values.tolist())
             
         else:
             index = np.array(car_eda[data_feature].value_counts().index)
             json_data = json.dumps(index.tolist())
                 
-            values = np.array(car_eda[data_feature].value_counts().values)
+            values = np.round((car_eda[data_feature].value_counts().values / car_eda[data_feature].value_counts().sum()), 2)
+            # values = np.array(car_eda[data_feature].value_counts().values)
             json_value = json.dumps(values.tolist())  
     
     print(json_value)
@@ -369,7 +372,7 @@ def predict():
     test['Airbags'] = test['Airbags'].astype('int64')
 
     prediction = model.predict(test)
-    print(prediction)
+    # print(prediction)
 
     return str(np.round(prediction[0], 2))
     # return ""

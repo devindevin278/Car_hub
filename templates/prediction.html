@@ -255,12 +255,7 @@
 
 
         <div class="row" id="row2">
-          <div class="col">
-              <div class="mb-3">
-              <label for="levy" class="form-label" id="levy">Levy</label>
-              <input type="number" id="levy" name="levy" class="form-control" placeholder="Input Car's Levy">
-              </div>
-          </div>
+          <input type="hidden" id="levy" name="levy" class="form-control" placeholder="Input Car's Levy" value="0">
           <div class="col">
               <div class="mb-3">
                   <label for="mileage" class="form-label" id="milage">Mileage</label>
@@ -388,7 +383,7 @@
 
       xhr.onreadystatechange = function() {
         if(xhr.readyState == XMLHttpRequest.DONE) {
-          document.getElementById('prediction').innerHTML = 'Rp ' + xhr.responseText;
+          document.getElementById('prediction').innerHTML = '$ ' + xhr.responseText;
         }
       }
       

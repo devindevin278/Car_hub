@@ -67,7 +67,7 @@
                     <a tabindex="0" class="btn btn-warning" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="bottom" data-bs-content="Engine volume represents the total displacement capacity of a car's engine, measured in liters or cubic centimeters (cc).">Engine Volume</a>
                 </div>
                 <div class="col">
-                    <a tabindex="0" class="btn btn-warning" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="bottom" data-bs-content="Mileage represents the total distance traveled by the car, typically measured in miles or kilometers, since its initial use or purchase.">Milage</a>
+                    <a tabindex="0" class="btn btn-warning" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="bottom" data-bs-content="Mileage represents the total distance traveled by the car, typically measured in miles or kilometers, since its initial use or purchase.">Mileage</a>
                 </div>
                 <div class="col">
                     <a tabindex="0" class="btn btn-warning" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="bottom" data-bs-content="Gearbox type refers to the specific transmission system used in a car, such as manual, automatic, continuously variable transmission (CVT), or dual-clutch transmission (DCT).">Gearbox Type</a>
@@ -78,7 +78,7 @@
             </div>
 
             <!-- row 3 -->
-            <div class="row align-items-start" id="col3">
+            <div class="row align-items-start">
                 <div class="col">
                     <a tabindex="0" class="btn btn-warning" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="bottom" data-bs-content="Doors are the hinged or sliding panels on a car that allow entry or exit for passengers or access to the interior and cargo areas.">Doors</a>
                 </div>
@@ -87,6 +87,9 @@
                 </div>
                 <div class="col">
                     <a tabindex="0" class="btn btn-warning" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="bottom" data-bs-content="Color refers to the visual appearance of a car's exterior, determined by the specific paint or coating applied to the body.">Color</a>
+                </div>
+                <div class="col">
+                    <a tabindex="0" class="btn btn-warning" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="bottom" data-bs-content="Cylinders are the individual chambers within a car's engine where the combustion process takes place.">Cylinders</a>
                 </div>
                 <div class="col">
                     <a tabindex="0" class="btn btn-warning" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="bottom" data-bs-content="Airbags are safety devices installed in cars that rapidly inflate during a collision to protect occupants by cushioning the impact and reducing injuries.">Airbags</a>
@@ -149,8 +152,8 @@
             
         </div>
 
-        <div class="w-100 d-flex" style="height: 600px;">
-            <canvas class="mt-4 mx-auto img-fluid w-100" id="myChart_price"></canvas>
+        <div class="w-100 d-flex" style="height: 500px;">
+            <canvas class="mt-4 mx-auto" id="myChart_price"></canvas>
         </div>
        
     </div>
@@ -210,8 +213,10 @@ $(document).ready(function() {
         count_feature_value = count_features.value
         if(count_charttype_value == 'bar') {
             legend = false
+            bar = true
         } else {
             legend = true
+            bar = false
         }
         
         $.ajax({
@@ -258,6 +263,22 @@ $(document).ready(function() {
                         }]
                     },
                     options: {
+                      scales: {
+                        x: {
+                          display: bar,
+                          title: {
+                            display: true,
+                            text: count_feature_value
+                          }
+                        },
+                        y: {
+                          display: bar,
+                          title: {
+                            display: true,
+                            text: 'Frequency'
+                          }
+                        }
+                      },
                         plugins: {
                             legend: {
                                 display: legend,
@@ -283,8 +304,10 @@ $(document).ready(function() {
         count_charttype_value = count_charttype.value
         if(count_charttype_value == 'bar') {
             legend = false
+            bar = true
         } else {
             legend = true
+            bar = false
         }
        
         
@@ -327,6 +350,22 @@ $(document).ready(function() {
                         }]
                     },
                     options: {
+                      scales: {
+                        x: {
+                          display: bar,
+                          title: {
+                            display: true,
+                            text: count_feature_value
+                          }
+                        },
+                        y: {
+                          display: bar,
+                          title: {
+                            display: true,
+                            text: 'Frequency'
+                          }
+                        }
+                      },
                         plugins: {
                             legend: {
                                 display: legend,
@@ -380,37 +419,31 @@ $(document).ready(function() {
                         }]
                     },
                     options: {
+                      scales: {
+                        x: {
+                          display: true,
+                          title: {
+                            display: true,
+                            text: 'Feature'
+                          }
+                        },
+                        y: {
+                          display: true,
+                          title: {
+                            display: true,
+                            text: 'Price'
+                          }
+                        }
+                      },
                         plugins: {
+                          
                             legend: {
                                 display: false
                             },
                             tooltip: {
                                 boxPadding: 3
                             },
-                            scales: {
-                                x: {
-                                    display: true,
-                                    title: {
-                                      display: true,
-                                      text: price_feature_value
-                                    }
-                                  },
-                                  y: {
-                                    display: true,
-                                    title: {
-                                      display: true,
-                                      text: 'Price',
-                                      color: 'black',
-                                      font: {
-                                        family: 'Times',
-                                        size: 20,
-                                        style: 'normal',
-                                        lineHeight: 1.2
-                                      },
-                                      padding: {top: 30, left: 0, right: 0, bottom: 0}
-                                    }
-                                  }
-                            }
+                            
                         }
                     }
                     
